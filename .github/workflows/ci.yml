@@ -18,6 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         openfoam-version:
+          - 2606
           - 2512
           - 2506
           - 2412
@@ -30,6 +31,7 @@ jobs:
           - 2106
           - 2012
           - 2006
+          - 14
           - 13
           - 12
           - 11
@@ -46,7 +48,25 @@ jobs:
           - macos-26-intel
           - macos-15-intel
         exclude:
-          - os: ubuntu-24.04
+          - os: ubuntu-26.04
+            openfoam-version: 2206
+          - os: ubuntu-26.04
+            openfoam-version: 2112
+          - os: ubuntu-26.04
+            openfoam-version: 2106
+          - os: ubuntu-26.04
+            openfoam-version: 2012
+          - os: ubuntu-26.04
+            openfoam-version: 2006
+          - os: ubuntu-26.04
+            openfoam-version: 12
+          - os: ubuntu-26.04
+            openfoam-version: 11
+          - os: ubuntu-26.04
+            openfoam-version: 10
+          - os: ubuntu-26.04
+            openfoam-version: 9
+          - os: ubuntu-26.04
             openfoam-version: 2206
           - os: ubuntu-24.04
             openfoam-version: 2112
@@ -59,6 +79,24 @@ jobs:
           - os: ubuntu-24.04
             openfoam-version: 10
           - os: ubuntu-24.04
+            openfoam-version: 9
+          - os: ubuntu-26.04-arm
+            openfoam-version: 2206
+          - os: ubuntu-26.04-arm
+            openfoam-version: 2112
+          - os: ubuntu-26.04-arm
+            openfoam-version: 2106
+          - os: ubuntu-26.04-arm
+            openfoam-version: 2012
+          - os: ubuntu-26.04-arm
+            openfoam-version: 2006
+          - os: ubuntu-26.04-arm
+            openfoam-version: 12
+          - os: ubuntu-26.04-arm
+            openfoam-version: 11
+          - os: ubuntu-26.04-arm
+            openfoam-version: 10
+          - os: ubuntu-26.04-arm
             openfoam-version: 9
           - os: ubuntu-24.04-arm
             openfoam-version: 2406
@@ -109,6 +147,8 @@ jobs:
           - os: macos-26
             openfoam-version: 2006
           - os: macos-26
+            openfoam-version: 14
+          - os: macos-26
             openfoam-version: 13
           - os: macos-26
             openfoam-version: 12
@@ -125,6 +165,8 @@ jobs:
           - os: macos-15
             openfoam-version: 2006
           - os: macos-15
+            openfoam-version: 14
+          - os: macos-15
             openfoam-version: 13
           - os: macos-15
             openfoam-version: 12
@@ -141,6 +183,8 @@ jobs:
           - os: macos-14
             openfoam-version: 2006
           - os: macos-14
+            openfoam-version: 14
+          - os: macos-14
             openfoam-version: 13
           - os: macos-14
             openfoam-version: 12
@@ -150,6 +194,8 @@ jobs:
             openfoam-version: 10
           - os: macos-14
             openfoam-version: 9
+          - os: macos-26-intel
+            openfoam-version: 2606
           - os: macos-26-intel
             openfoam-version: 2512
           - os: macos-26-intel
@@ -159,6 +205,8 @@ jobs:
           - os: macos-26-intel
             openfoam-version: 2006
           - os: macos-26-intel
+            openfoam-version: 14
+          - os: macos-26-intel
             openfoam-version: 13
           - os: macos-26-intel
             openfoam-version: 12
@@ -169,6 +217,8 @@ jobs:
           - os: macos-26-intel
             openfoam-version: 9
           - os: macos-15-intel
+            openfoam-version: 2606
+          - os: macos-15-intel
             openfoam-version: 2512
           - os: macos-15-intel
             openfoam-version: 2106
@@ -176,6 +226,8 @@ jobs:
             openfoam-version: 2012
           - os: macos-15-intel
             openfoam-version: 2006
+          - os: macos-15-intel
+            openfoam-version: 14
           - os: macos-15-intel
             openfoam-version: 13
           - os: macos-15-intel
@@ -188,7 +240,7 @@ jobs:
             openfoam-version: 9
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Set up OpenFOAM ${{ matrix.openfoam-version }}
       uses: ./
       with:
@@ -210,6 +262,7 @@ jobs:
       fail-fast: false
       matrix:
         openfoam-version:
+          - 2606
           - 2512
           - 2506
           - 2412
@@ -222,6 +275,7 @@ jobs:
           - 2106
           - 2012
           - 2006
+          - 14
           - 13
           - 12
           - 11
@@ -230,12 +284,36 @@ jobs:
           - 8
           - 7
         container:
+          - ubuntu:26.04
           - ubuntu:24.04
           - ubuntu:22.04
           - ubuntu:20.04
+          - debian:trixie
           - debian:bookworm
           - debian:bullseye
         exclude:
+          - container: ubuntu:26.04
+            openfoam-version: 2206
+          - container: ubuntu:26.04
+            openfoam-version: 2112
+          - container: ubuntu:26.04
+            openfoam-version: 2106
+          - container: ubuntu:26.04
+            openfoam-version: 2012
+          - container: ubuntu:26.04
+            openfoam-version: 2006
+          - container: ubuntu:26.04
+            openfoam-version: 12
+          - container: ubuntu:26.04
+            openfoam-version: 11
+          - container: ubuntu:26.04
+            openfoam-version: 10
+          - container: ubuntu:26.04
+            openfoam-version: 9
+          - container: ubuntu:26.04
+            openfoam-version: 8
+          - container: ubuntu:26.04
+            openfoam-version: 7
           - container: ubuntu:24.04
             openfoam-version: 2206
           - container: ubuntu:24.04
@@ -259,19 +337,27 @@ jobs:
           - container: ubuntu:22.04
             openfoam-version: 7
           - container: ubuntu:20.04
+            openfoam-version: 14
+          - container: ubuntu:20.04
             openfoam-version: 13
+          - container: debian:trixie
+            openfoam-version: 14
+          - container: debian:trixie
+            openfoam-version: 13
+          - container: debian:trixie
+            openfoam-version: 12
+          - container: debian:trixie
+            openfoam-version: 11
+          - container: debian:trixie
+            openfoam-version: 10
+          - container: debian:trixie
+            openfoam-version: 9
+          - container: debian:trixie
+            openfoam-version: 8
+          - container: debian:trixie
+            openfoam-version: 7
           - container: debian:bookworm
-            openfoam-version: 2512
-          - container: debian:bookworm
-            openfoam-version: 2506
-          - container: debian:bookworm
-            openfoam-version: 2412
-          - container: debian:bookworm
-            openfoam-version: 2406
-          - container: debian:bookworm
-            openfoam-version: 2306
-          - container: debian:bookworm
-            openfoam-version: 2012
+            openfoam-version: 14
           - container: debian:bookworm
             openfoam-version: 13
           - container: debian:bookworm
@@ -287,15 +373,7 @@ jobs:
           - container: debian:bookworm
             openfoam-version: 7
           - container: debian:bullseye
-            openfoam-version: 2512
-          - container: debian:bullseye
-            openfoam-version: 2506
-          - container: debian:bullseye
-            openfoam-version: 2412
-          - container: debian:bullseye
-            openfoam-version: 2406
-          - container: debian:bullseye
-            openfoam-version: 2306
+            openfoam-version: 14
           - container: debian:bullseye
             openfoam-version: 13
           - container: debian:bullseye
@@ -312,7 +390,7 @@ jobs:
             openfoam-version: 7
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Set up OpenFOAM ${{ matrix.openfoam-version }}
       uses: ./
       with:
@@ -331,18 +409,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
+    - name: Set up OpenFOAM v2606
+      uses: ./
+      with:
+        openfoam-version: 2606
     - name: Set up OpenFOAM v2512
       uses: ./
       with:
         openfoam-version: 2512
-    - name: Set up OpenFOAM v2506
-      uses: ./
-      with:
-        openfoam-version: 2506
-    - name: Test OpenFOAM v2506
-      run: |
-        icoFoam -help | grep 2506
-        openfoam icoFoam -help | grep 2506
     - name: Test OpenFOAM v2512
-      run: openfoam2512 icoFoam -help | grep 2512
+      run: |
+        icoFoam -help | grep 2512
+        openfoam icoFoam -help | grep 2512
+    - name: Test OpenFOAM v2606
+      run: openfoam2606 icoFoam -help | grep 2606
